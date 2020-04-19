@@ -1,0 +1,7 @@
+{
+  "name": "calendario-turnos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
