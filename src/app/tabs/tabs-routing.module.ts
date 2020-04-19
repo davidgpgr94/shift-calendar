@@ -13,7 +13,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../shifts/shifts.module').then(m => m.ShiftsPageModule)
+              import('./shifts/shifts.module').then(m => m.ShiftsPageModule)
           }
         ]
       },
@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../events/events.module').then(m => m.EventsPageModule)
+              import('./events/events.module').then(m => m.EventsPageModule)
           }
         ]
       },

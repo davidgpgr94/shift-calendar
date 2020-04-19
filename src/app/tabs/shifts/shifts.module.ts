@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { EventsPage } from './events.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { ShiftsPage } from './shifts.page';
+import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
 
 @NgModule({
   imports: [
@@ -12,8 +12,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: EventsPage }])
+    RouterModule.forChild([{ path: '', component: ShiftsPage }])
   ],
-  declarations: [EventsPage]
+  declarations: [ShiftsPage]
 })
-export class EventsPageModule {}
+export class ShiftsPageModule {}
