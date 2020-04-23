@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="prevMonth()">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="nextMonth()">
+        <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title size="large" class="ion-text-center ion-text-uppercase" (click)="datePicker.open()"> {{currentDate | date:'MMMM yyyy'}} </ion-title>
+    <ion-datetime #datePicker (ionChange)="dateChanged($event.detail.value)" class="ion-hide" displayFormat="MMMM YYYY" max="{{maxYear}}"></ion-datetime>
+
+  </ion-toolbar>
+
+</ion-header>

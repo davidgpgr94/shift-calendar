@@ -1,18 +1,19 @@
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule as AngularCommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ShiftsPage } from './shifts.page';
-import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
+
+import { CommonModule } from '../../common/common.module';
 
 @NgModule({
   imports: [
     IonicModule,
-    CommonModule,
+    AngularCommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: ShiftsPage }])
+    RouterModule.forChild([{ path: '', component: ShiftsPage }]),
+    CommonModule
   ],
   declarations: [ShiftsPage]
 })
