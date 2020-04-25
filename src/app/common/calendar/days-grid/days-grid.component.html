@@ -1,0 +1,12 @@
+<ion-row class="ion-text-center ion-text-uppercase ion-align-items-stretch week" *ngFor="let daysOfWeek of daysPerWeek">
+  <ion-col size-sm *ngFor="let day of daysOfWeek">
+    <div class="head">
+      {{ day | date:'dd' }}
+    </div>
+    <div class="shifts">
+      <div style="width: 100%; height: 10px; background-color: blue;"></div>
+      <div style="width: 100%; height: 10px; background-color: maroon;"></div>
+      <div style="width: 100%; height: 10px; background-color: blueviolet"></div>
+    </div>
+  </ion-col>
+</ion-row>

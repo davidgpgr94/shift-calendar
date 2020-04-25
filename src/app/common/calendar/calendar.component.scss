@@ -1,7 +1,30 @@
-ion-toolbar {
-    --background: translucent;
 
-    &:hover {
-        cursor: pointer;
+.content {
+    height: 100%;
+    
+    ion-header {
+        height: 7%;
+
+        ion-toolbar {
+            --background: translucent;
+            height: 100%;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    ion-grid {
+        height: 93%;
+
+        days-head {
+            display: block;
+            height: 5%;
+        }
+
+        days-grid {
+            display: block;
+            height: 95%;
+        }
     }
 }

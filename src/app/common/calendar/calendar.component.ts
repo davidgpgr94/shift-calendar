@@ -25,7 +25,7 @@ export class CalendarComponent implements OnInit {
     const today = moment(moment.now());
     this.currentMonth = this.initialMonth || today.month();
     this.currentYear = this.initialYear || today.year();
-    this.auxDate = moment(`01-${this.currentMonth}-${this.currentYear}`, 'DD-MM-YYYY');
+    this.auxDate = moment(`01-${this.currentMonth + 1}-${this.currentYear}`, 'DD-MM-YYYY');
   }
 
   nextMonth() {

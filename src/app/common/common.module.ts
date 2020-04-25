@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CalendarComponent } from './calendar/calendar.component';
 import { DaysHeadComponent } from './calendar/days-head/days-head.component';
+import { DaysGridComponent } from './calendar/days-grid/days-grid.component';
 import { YearMonthPickerComponent } from './year-month-picker/year-month-picker.component';
 
 
@@ -12,6 +13,7 @@ import { YearMonthPickerComponent } from './year-month-picker/year-month-picker.
   declarations: [
     CalendarComponent,
     DaysHeadComponent,
+    DaysGridComponent,
     YearMonthPickerComponent
   ],
   imports: [

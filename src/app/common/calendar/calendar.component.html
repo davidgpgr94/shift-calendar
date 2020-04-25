@@ -1,24 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="prevMonth()">
-        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="nextMonth()">
-        <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title size="large" class="ion-text-center ion-text-uppercase" (click)="myPicker.showPicker()"> {{currentTitle}} </ion-title>
-    <app-year-month-picker #myPicker [(year)]="currentYear" [(month)]="currentMonth"></app-year-month-picker>
-
-  </ion-toolbar>
-
-</ion-header>
-
-<ion-grid fixed="true">
-  <days-head></days-head>
-
-</ion-grid>
+<div class="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="prevMonth()">
+          <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="nextMonth()">
+          <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  
+      <ion-title size="large" class="ion-text-center ion-text-uppercase" (click)="myPicker.showPicker()"> {{currentTitle}} </ion-title>
+      <app-year-month-picker #myPicker [(year)]="currentYear" [(month)]="currentMonth"></app-year-month-picker>
+  
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-grid>
+    <days-head></days-head>
+    <days-grid [year]="currentYear" [month]="currentMonth"></days-grid>
+  </ion-grid>
+</div>
