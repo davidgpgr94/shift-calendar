@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tab1',
+  selector: 'tab-shifts',
   templateUrl: 'shifts.page.html',
   styleUrls: ['shifts.page.scss']
 })

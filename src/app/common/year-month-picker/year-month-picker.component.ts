@@ -8,7 +8,7 @@ import { GlobalizeService } from '../../services/globalize.service';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-year-month-picker',
+  selector: 'my-year-month-picker',
   templateUrl: './year-month-picker.component.html',
   styleUrls: ['./year-month-picker.component.scss'],
 })

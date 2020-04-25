@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { GlobalizeService } from '../../services/globalize.service';
 
 @Component({
-  selector: 'app-calendar',
+  selector: 'my-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
