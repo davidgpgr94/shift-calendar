@@ -19,9 +19,11 @@ export class YearMonthPickerComponent {
 
   /* Inputs */
   @Input() year: number;
-  @Input() month: number;
+  @Input() month: number; // 0 - Jan, 11 - December
 
   /* Outputs */
+  @Output() yearChange = new EventEmitter<number>();
+  @Output() monthChange = new EventEmitter<number>();
   @Output() change = new EventEmitter<PickerChangeValue>();
 
 
@@ -29,8 +31,6 @@ export class YearMonthPickerComponent {
   years: number[];
   monthsAndYears: MonthsAndYears;
 
-  monthSelected: number;
-  yearSelected: number;
 
   constructor(private pickerController: PickerController, private globalize: GlobalizeService) {
     if (this.year && this.year < YearMonthPickerComponent.MIN_YEAR) {
@@ -39,9 +39,6 @@ export class YearMonthPickerComponent {
 
     this.months = this.globalize.getMonthsForCurrentLang();
     this.years = Array.from(Array(YearMonthPickerComponent.MAX_NUM_YEARS), (_, x) => x + YearMonthPickerComponent.MIN_YEAR);
-
-    this.monthSelected = this.month || (moment(moment.now()).month());
-    this.yearSelected = this.year || moment(moment.now()).year();
 
     const currentYear = moment(moment.now()).year();
     if (this.years.indexOf(currentYear) === -1) {
@@ -88,13 +85,13 @@ export class YearMonthPickerComponent {
     const monthsColumn: PickerColumn = {
       name: `month`,
       options: this.getMonthsColumnOptions(),
-      selectedIndex: this.monthSelected
+      selectedIndex: this.month
     };
     columns.push(monthsColumn);
     const yearsColumn: PickerColumn = {
       name: 'year',
       options: this.getYearsColumnOptions(),
-      selectedIndex: this.monthsAndYears.years.indexOf(this.yearSelected)
+      selectedIndex: this.monthsAndYears.years.indexOf(this.year)
     };
     columns.push(yearsColumn);
     return columns;
@@ -123,19 +120,21 @@ export class YearMonthPickerComponent {
   }
 
   private onPickerSelected(value: PickerOptionsSelected) {
-    this.monthSelected = value.month.value;
-    this.yearSelected = value.year.value;
     const res: PickerChangeValue = {
-      month: value.month.value + 1,
+      month: value.month.value,
       year: value.year.value
     };
+    this.year = res.year;
+    this.month = res.month;
+    this.yearChange.emit(this.year);
+    this.monthChange.emit(this.month);
     this.change.emit(res);
   }
 
 }
 
 export interface PickerChangeValue {
-  month: number; // 1 - Jan, 2 - Feb, ...
+  month: number; // 0 - Jan, 11 - Feb, ...
   year: number;
 }
 

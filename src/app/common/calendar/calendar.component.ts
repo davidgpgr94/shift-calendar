@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import * as moment from 'moment';
 
+import { GlobalizeService } from '../../services/globalize.service';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -9,33 +11,40 @@ import * as moment from 'moment';
 })
 export class CalendarComponent implements OnInit {
 
-  @Input() initialDate: Date;
+  @Input() initialMonth: number;
+  @Input() initialYear: number;
 
-  currentDate: Date;
-  maxYear: number;
+  currentMonth: number; // 0 - Jan, 11 - December
+  currentYear: number;
 
-  constructor() { }
+  auxDate: moment.Moment;
+
+  constructor(private globalize: GlobalizeService) { }
 
   ngOnInit() {
-    this.currentDate = this.initialDate || moment(moment.now()).toDate();
-    this.maxYear = moment(this.currentDate).add(3, 'years').year();
-  }
-
-  dateChanged(date: string) {
-    const dateSelected = moment(date);
-    this.currentDate = moment(`${dateSelected.date()}-${dateSelected.month() + 1}-${dateSelected.year()}`, 'DD-MM-YYYY').toDate();
+    const today = moment(moment.now());
+    this.currentMonth = this.initialMonth || today.month();
+    this.currentYear = this.initialYear || today.year();
+    this.auxDate = moment(`01-${this.currentMonth}-${this.currentYear}`, 'DD-MM-YYYY');
   }
 
   nextMonth() {
-    const mCurrentDate = moment(this.currentDate);
-    mCurrentDate.add(1, 'month');
-    this.currentDate = mCurrentDate.toDate();
+    this.auxDate.add(1, 'month');
+    this.currentMonth = this.auxDate.month();
+    this.currentYear = this.auxDate.year();
   }
 
   prevMonth() {
-    const mCurrentDate = moment(this.currentDate);
-    mCurrentDate.subtract(1, 'month');
-    this.currentDate = mCurrentDate.toDate();
+    this.auxDate.subtract(1, 'month');
+    this.currentMonth = this.auxDate.month();
+    this.currentYear = this.auxDate.year();
   }
+
+
+  public get currentTitle(): string {
+    return `${this.globalize.getMonthNameForCurrentLang(this.currentMonth)} ${this.currentYear}`;
+  }
+
+
 
 }
