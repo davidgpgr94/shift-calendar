@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import * as moment from 'moment';
 
@@ -13,6 +13,8 @@ export class CalendarComponent implements OnInit {
 
   @Input() initialMonth: number;
   @Input() initialYear: number;
+
+  @Output() daySelected = new EventEmitter<moment.Moment>();
 
   currentMonth: number; // 0 - Jan, 11 - December
   currentYear: number;

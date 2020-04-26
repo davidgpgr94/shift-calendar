@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
@@ -12,6 +12,8 @@ export class DaysGridComponent implements OnInit {
 
   @Input() year: number;
   @Input() month: number;
+
+  @Output() daySelected = new EventEmitter<moment.Moment>();
 
   constructor() { }
 
@@ -40,6 +42,14 @@ export class DaysGridComponent implements OnInit {
       weeks.push(week);
     }
     return weeks;
+  }
+
+  /**
+   * onDaySelected
+   */
+  public onDaySelected(day: moment.Moment) {
+    console.log(day.format('DD-MM-YYYY'));
+    this.daySelected.emit(day);
   }
 
 }

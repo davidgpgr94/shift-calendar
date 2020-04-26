@@ -1,5 +1,8 @@
 <ion-row class="ion-text-center ion-text-uppercase ion-align-items-stretch week" *ngFor="let daysOfWeek of daysPerWeek">
-  <ion-col size-sm *ngFor="let day of daysOfWeek">
+  <ion-col size-sm *ngFor="let day of daysOfWeek" (click)="onDaySelected(day)" class="day-cell">
+    <div class="ripple-parent ion-activatable">
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
     <div class="head">
       {{ day | date:'dd' }}
     </div>

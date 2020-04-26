@@ -1,15 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
 
-    <ion-title> Shifts </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <my-calendar></my-calendar>
+<ion-content [fullscreen]="true" force-overscroll="false">
+  <div class="ion-margin-top">
+    <my-calendar></my-calendar>
+  </div>
 </ion-content>
