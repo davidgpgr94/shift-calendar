@@ -3,9 +3,9 @@ ion-row.week {
     height: 16%;
 }
 
-ion-row ion-col {
-    // border: 1px solid red;
-}
+// ion-row ion-col {
+//     border: 1px solid red;
+// }
 
 .day-cell {
     margin: 1px;
@@ -24,6 +24,12 @@ ion-row ion-col {
         &:hover {
             cursor: pointer;
             background-color: rgba(180, 180, 180, 0.465);
+        }
+    }
+
+    &.not-belongs-month {
+        .head {
+            color: #8c8c8c;
         }
     }
 

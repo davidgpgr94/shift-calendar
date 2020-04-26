@@ -12,7 +12,7 @@
         </ion-button>
       </ion-buttons>
   
-      <ion-title size="large" class="ion-text-center ion-text-uppercase" (click)="myPicker.showPicker()"> {{currentTitle}} </ion-title>
+      <ion-title size="large" class="ion-text-center ion-text-capitalize" (click)="myPicker.showPicker()"> {{currentTitle}} </ion-title>
       <my-year-month-picker #myPicker [(year)]="currentYear" [(month)]="currentMonth"></my-year-month-picker>
   
     </ion-toolbar>

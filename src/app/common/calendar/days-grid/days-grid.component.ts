@@ -52,4 +52,8 @@ export class DaysGridComponent implements OnInit {
     this.daySelected.emit(day);
   }
 
+  belongsToMonth(day: moment.Moment): boolean {
+    return (day.month() === this.month) && (day.year() === this.year);
+  }
+
 }
