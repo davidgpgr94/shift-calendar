@@ -11,7 +11,7 @@ import { GlobalizeService } from '../../services/globalize.service';
 })
 export class CalendarComponent implements OnInit {
 
-  @Input() initialMonth: number;
+  @Input() initialMonth: number; // 0 - Jan, 11 - December
   @Input() initialYear: number;
 
   @Output() daySelected = new EventEmitter<moment.Moment>();
@@ -25,8 +25,8 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     const today = moment(moment.now());
-    this.currentMonth = this.initialMonth || today.month();
-    this.currentYear = this.initialYear || today.year();
+    this.currentMonth = this.initialMonth === undefined ? today.month() : this.initialMonth;
+    this.currentYear = this.initialYear === undefined ? today.year() : this.initialYear;
     this.auxDate = moment(`01-${this.currentMonth + 1}-${this.currentYear}`, 'DD-MM-YYYY');
   }
 

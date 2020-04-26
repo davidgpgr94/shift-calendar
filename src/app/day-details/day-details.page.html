@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultBackHref" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>DayDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  {{ day | date:'dd-MM-yyyy' }}
+</ion-content>
