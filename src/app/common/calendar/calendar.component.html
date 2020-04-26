@@ -21,6 +21,6 @@
   
   <ion-grid>
     <days-head></days-head>
-    <days-grid [year]="currentYear" [month]="currentMonth"></days-grid>
+    <days-grid [year]="currentYear" [month]="currentMonth" (daySelected)="onDaySelected($event)"></days-grid>
   </ion-grid>
 </div>

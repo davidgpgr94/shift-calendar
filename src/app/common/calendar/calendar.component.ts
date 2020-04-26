@@ -47,6 +47,9 @@ export class CalendarComponent implements OnInit {
     return `${this.globalize.getMonthNameForCurrentLang(this.currentMonth)} ${this.currentYear}`;
   }
 
+  public onDaySelected(day: moment.Moment) {
+    this.daySelected.emit(day);
+  }
 
 
 }

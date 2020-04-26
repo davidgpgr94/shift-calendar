@@ -1,6 +1,6 @@
 
 <ion-content [fullscreen]="true" force-overscroll="false">
   <div class="ion-margin-top">
-    <my-calendar></my-calendar>
+    <my-calendar (daySelected)="onDaySelected($event)"></my-calendar>
   </div>
 </ion-content>

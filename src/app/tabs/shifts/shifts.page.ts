@@ -9,4 +9,8 @@ export class ShiftsPage {
 
   constructor() {}
 
+  onDaySelected(day: moment.Moment) {
+    console.log(day.format('DD-MM-YYYY'));
+  }
+
 }
