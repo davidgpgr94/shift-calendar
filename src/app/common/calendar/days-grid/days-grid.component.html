@@ -3,9 +3,9 @@
     <div class="ripple-parent ion-activatable">
       <ion-ripple-effect></ion-ripple-effect>
     </div>
-    <div class="head">
+    <ion-badge class="head" [ngClass]="{'current-day': isToday(day), 'not-belongs-month': !belongsToMonth(day)}">
       {{ day | date:'dd' }}
-    </div>
+    </ion-badge>
     <div class="shifts">
       <div style="width: 100%; height: 10px; background-color: blue;"></div>
       <div style="width: 100%; height: 10px; background-color: maroon;"></div>

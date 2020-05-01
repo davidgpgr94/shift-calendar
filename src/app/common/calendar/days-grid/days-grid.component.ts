@@ -56,4 +56,9 @@ export class DaysGridComponent implements OnInit {
     return (day.month() === this.month) && (day.year() === this.year);
   }
 
+  isToday(day: moment.Moment): boolean {
+    const today = moment(moment.now());
+    return today.date() === day.date() && today.month() === day.month() && today.year() === day.year();
+  }
+
 }

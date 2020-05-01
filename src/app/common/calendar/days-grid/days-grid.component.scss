@@ -27,9 +27,27 @@ ion-row.week {
         }
     }
 
-    &.not-belongs-month {
-        .head {
-            color: #8c8c8c;
+    ion-badge.head {
+        
+        &:not(.current-day) {
+            --background: transparent;
+            &.not-belongs-month {
+                --color: #8c8c8c;
+            }
+            &:not(.not-belongs-month) {
+                --color: var(--ion-text-color);
+            }
+        }
+
+        &.current-day {
+            &.not-belongs-month {
+                --background: var(--ion-color-tertiary-tint);
+                --color: var(--ion-color-tertiary-contrast);
+            }
+            &:not(.not-belongs-month) {
+                --background: var(--ion-color-primary-tint);
+                --color: var(--ion-color-primary-contrast);
+            }
         }
     }
 
