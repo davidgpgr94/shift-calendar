@@ -1,6 +1,4 @@
 
 <ion-content [fullscreen]="true" force-overscroll="false">
-  <div class="ion-margin-top">
-    <my-calendar (daySelected)="onDaySelected($event)" [initialMonth]="month" [initialYear]="year"></my-calendar>
-  </div>
+  <my-calendar (daySelected)="onDaySelected($event)" [initialMonth]="month" [initialYear]="year"></my-calendar>
 </ion-content>
