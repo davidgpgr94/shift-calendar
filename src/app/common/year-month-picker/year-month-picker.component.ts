@@ -4,7 +4,7 @@ import { PickerController } from '@ionic/angular';
 import { PickerOptions, PickerColumn, PickerColumnOption } from '@ionic/core';
 
 // Services
-import { GlobalizeService } from '../../services/globalize.service';
+import { GlobalizeService } from '../../services';
 import * as moment from 'moment';
 
 @Component({

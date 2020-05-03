@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { GlobalizeService } from '../../services/globalize.service';
+import { GlobalizeService, SharedDataService } from '../../services';
 
 @Component({
   selector: 'my-calendar',
@@ -21,25 +21,28 @@ export class CalendarComponent implements OnInit {
 
   auxDate: moment.Moment;
 
-  constructor(private globalize: GlobalizeService) { }
+  constructor(private globalize: GlobalizeService, private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
     const today = moment(moment.now());
     this.currentMonth = this.initialMonth === undefined ? today.month() : this.initialMonth;
     this.currentYear = this.initialYear === undefined ? today.year() : this.initialYear;
     this.auxDate = moment(`01-${this.currentMonth + 1}-${this.currentYear}`, 'DD-MM-YYYY');
+    this.sharedDataService.changeCalendarCurrentYearMonth(this.currentYear, this.currentMonth);
   }
 
   nextMonth() {
     this.auxDate.add(1, 'month');
     this.currentMonth = this.auxDate.month();
     this.currentYear = this.auxDate.year();
+    this.sharedDataService.changeCalendarCurrentYearMonth(this.currentYear, this.currentMonth);
   }
 
   prevMonth() {
     this.auxDate.subtract(1, 'month');
     this.currentMonth = this.auxDate.month();
     this.currentYear = this.auxDate.year();
+    this.sharedDataService.changeCalendarCurrentYearMonth(this.currentYear, this.currentMonth);
   }
 
 

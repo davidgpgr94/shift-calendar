@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { GlobalizeService } from '../../../services/globalize.service';
+import { GlobalizeService } from '../../../services';
 
 @Component({
   selector: 'days-head',
