@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'day-details',
     loadChildren: () => import('./day-details/day-details.module').then( m => m.DayDetailsPageModule)
+  },
+  {
+    path: 'add-shift',
+    loadChildren: () => import('./add-shift/add-shift.module').then( m => m.AddShiftPageModule)
   }
 ];
 @NgModule({

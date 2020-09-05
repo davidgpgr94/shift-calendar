@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" fill="solid" expand="block" class="save-button" (click)="openCalendarModal()">Guardar</ion-button>
+    </ion-buttons>    
+  </ion-toolbar>
+
+  <div>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked">Fecha inicio <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" (ionFocus)="openCalendarModal()" clearInput="true"></ion-input>
+      </ion-item>
+  
+  
+      <ion-item>
+        <ion-label position="stacked">Fecha fin <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" (ionFocus)="openCalendarModal()" clearInput="true"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-select interface="alert" placeholder="Elegir turno">
+          <ion-select-option value="1">Mañana</ion-select-option>
+          <ion-select-option value="2">Tarde</ion-select-option>
+          <ion-select-option value="3">Noche</ion-select-option>
+        </ion-select><ion-text color="danger">*</ion-text>
+
+        <ion-button size="small" fill="clear" shape="round" class="ion-margin-start">
+          <ion-icon name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item-group>
+
+  </div>
+
+</ion-content>

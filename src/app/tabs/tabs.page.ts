@@ -21,7 +21,7 @@ export class TabsPage implements OnInit {
   }
 
   onAddShift() {
-    this.router.navigate([`/day-details/01-${this.currentMonth + 1}-${this.currentYear}`]);
+    this.router.navigate(['/add-shift'], {queryParams: {month: this.currentMonth, year: this.currentYear}});
   }
 
 }

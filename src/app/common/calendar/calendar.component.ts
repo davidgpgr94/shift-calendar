@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { GlobalizeService, SharedDataService } from '../../services';
+import { SharedDataService } from '../../services';
+import { getMonthNameForCurrentLang } from '../../shared';
 
 @Component({
   selector: 'my-calendar',
@@ -21,7 +22,7 @@ export class CalendarComponent implements OnInit {
 
   auxDate: moment.Moment;
 
-  constructor(private globalize: GlobalizeService, private sharedDataService: SharedDataService) { }
+  constructor(private sharedDataService: SharedDataService) { }
 
   ngOnInit() {
     const today = moment(moment.now());
@@ -47,7 +48,7 @@ export class CalendarComponent implements OnInit {
 
 
   public get currentTitle(): string {
-    return `${this.globalize.getMonthNameForCurrentLang(this.currentMonth)} ${this.currentYear}`;
+    return `${getMonthNameForCurrentLang(this.currentMonth)} ${this.currentYear}`;
   }
 
   public onDaySelected(day: moment.Moment) {

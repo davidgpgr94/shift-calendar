@@ -4,8 +4,8 @@ import { PickerController } from '@ionic/angular';
 import { PickerOptions, PickerColumn, PickerColumnOption } from '@ionic/core';
 
 // Services
-import { GlobalizeService } from '../../services';
 import * as moment from 'moment';
+import { getMonthsForCurrentLang } from '../../shared';
 
 @Component({
   selector: 'my-year-month-picker',
@@ -32,12 +32,12 @@ export class YearMonthPickerComponent {
   monthsAndYears: MonthsAndYears;
 
 
-  constructor(private pickerController: PickerController, private globalize: GlobalizeService) {
+  constructor(private pickerController: PickerController) {
     if (this.year && this.year < YearMonthPickerComponent.MIN_YEAR) {
       throw new Error(`Input year must be bigger than ${YearMonthPickerComponent.MIN_YEAR}`);
     }
 
-    this.months = this.globalize.getMonthsForCurrentLang();
+    this.months = getMonthsForCurrentLang();
     this.years = Array.from(Array(YearMonthPickerComponent.MAX_NUM_YEARS), (_, x) => x + YearMonthPickerComponent.MIN_YEAR);
 
     const currentYear = moment(moment.now()).year();

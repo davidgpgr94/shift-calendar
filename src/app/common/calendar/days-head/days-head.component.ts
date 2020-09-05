@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { GlobalizeService } from '../../../services';
+import { getWeekDaysForCurrentLang } from '../../../shared';
 
 @Component({
   selector: 'days-head',
@@ -11,8 +11,8 @@ export class DaysHeadComponent {
 
   weekDays: string[];
 
-  constructor(private globalize: GlobalizeService) {
-    const days = this.globalize.getWeekDaysForCurrentLang();
+  constructor() {
+    const days = getWeekDaysForCurrentLang();
     days.push(days[0]);
     this.weekDays = days.slice(1);
   }

@@ -20,8 +20,10 @@ export class ShiftsPage implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       if (params.has('month') && params.has('year')) {
         const aux = moment(`01-${params.get('month')}-${params.get('year')}`, 'DD-MM-YYYY');
-        this.month = aux.month();
-        this.year = aux.year();
+        if (aux.isValid()) {
+          this.month = aux.month();
+          this.year = aux.year();
+        }
       }
     });
   }
